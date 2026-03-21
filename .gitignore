@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+*.deb
+*.AppImage
+*.snap
+
+# Runtime files
+sessions/
+logs/
+memory/
+embedding_cache/
+tool_result/
+providers/
+media_download_analysis/
+
+# Config files (local machine specific)
+config.json
+chats.json
+token_usage.json
+feishu_receive_ids.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Openclaw runtime data
+openclaw/*.json
+openclaw/devices/
+openclaw/identity/
+openclaw/feishu/
+openclaw/cron/
+openclaw/exec-approvals.json
+openclaw/update-check.json

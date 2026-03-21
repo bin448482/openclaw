@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax-portal/MiniMax-M2.7"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "Main",
+        "workspace": "/mnt/tool/1-works/openclaw",
+        "agentDir": "~/.openclaw/agents/main/agent"
+      },
+      {
+        "id": "candy",
+        "name": "Candy",
+        "workspace": "/mnt/tool/1-works/openclaw/workspace-candy",
+        "agentDir": "~/.openclaw/agents/candy/agent"
+      }
+    ]
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "gateway": {
+    "mode": "local"
+  },
+  "plugins": {
+    "entries": {
+      "minimax": {
+        "enabled": true
+      }
+    }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.3.14",
+    "lastTouchedAt": "2026-03-21T15:39:07.028Z"
+  }
+}

@@ -113,6 +113,12 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 **Don't overdo it:** One reaction per message max. Pick the one that fits best.
 
+## Platform Docs
+
+快速参考文档（位于 `docs/` 目录）：
+
+- [Feishu 群组配置](/docs/feishu-group-config.md) — 获取群 ID、配置 @mention 响应行为
+
 ## Tools
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.

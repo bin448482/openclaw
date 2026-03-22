@@ -22,7 +22,7 @@
 podman run -d --name <容器名> -p <端口> <镜像>
 
 # 示例: 安装 Nextcloud
-podman run -d --name nextcloud -p 8080:80 nextcloud:latest
+podman run -d --name nextcloud -p 8088:80 nextcloud:latest
 ```
 
 ---
@@ -32,7 +32,7 @@ podman run -d --name nextcloud -p 8080:80 nextcloud:latest
 ## 环境信息
 - Nextcloud 运行在 Podman 容器中（不是 Docker）
 - 容器名称: `nextcloud`
-- 端口映射: 0.0.0.0:8080->80/tcp
+- 端口映射: 0.0.0.0:8088->80/tcp
 - 数据目录: `/var/www/html/data/`
 
 ## 常用 Podman 命令
@@ -80,7 +80,7 @@ podman logs nextcloud
 ## 注意事项
 - 使用 `podman` 命令而非 `docker` 命令
 - 数据文件权限归 www-data 用户所有
-- 容器ID: 270dd3ba8295
+- 数据已迁移至 /mnt/tool/nextcloud_data/
 
 ---
 
@@ -93,7 +93,7 @@ podman logs nextcloud
 | `/mnt/tool/视频/` | 纪录片/视频文件夹 |
 | `/mnt/tool/迅雷下载/` | 影片默认下载目录（包含 .mkv 电影文件） |
 | `/mnt/tool/1-works/file_store/` | Copaw 文件存储目录 |
-| `/home/binzhan/.local/share/containers/storage/volumes/nextcloud_data/_data/data/` | Nextcloud 数据目录 |
+| `/mnt/tool/nextcloud_data/` | Nextcloud 数据目录 |
 
 ## 查找影片命令
 

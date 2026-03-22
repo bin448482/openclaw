@@ -1,0 +1,29 @@
+{
+  "gateway": {
+    "mode": "local"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax-portal/MiniMax-M2.7"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "Main",
+        "workspace": "/mnt/tool/1-works/openclaw",
+        "agentDir": "~/.openclaw/agents/main/agent"
+      },
+      {
+        "id": "candy",
+        "name": "Candy",
+        "workspace": "/mnt/tool/1-works/openclaw/workspace-candy",
+        "agentDir": "~/.openclaw/agents/candy/agent"
+      }
+    ]
+  }
+}

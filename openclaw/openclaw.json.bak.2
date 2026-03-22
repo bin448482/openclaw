@@ -1,8 +1,4 @@
 {
-  "meta": {
-    "lastTouchedVersion": "2026.3.14",
-    "lastTouchedAt": "2026-03-21T15:39:07.130Z"
-  },
   "agents": {
     "defaults": {
       "model": {
@@ -34,42 +30,17 @@
     "ownerDisplay": "raw"
   },
   "gateway": {
-    "mode": "local",
-    "auth": {
-      "mode": "token",
-      "token": "399493bc1c793c1c22b0f4928994f61c9632dc04bf19d50d"
-    }
+    "mode": "local"
   },
-  "channels": {
-    "feishu": {
-      "enabled": true,
-      "defaultAccount": "main",
-      "accounts": {
-        "main": {
-          "appId": "cli_a93753481738dbd6",
-          "appSecret": "3rauSZh6Ul3atCdwvaz0gfRcHFEiDL2C",
-          "dmPolicy": "pairing"
-        }
-      }
-    }
-  },
-  "bindings": [
-    {
-      "agentId": "main",
-      "match": {
-        "channel": "feishu",
-        "accountId": "main"
-      }
-    }
-  ],
   "plugins": {
     "entries": {
       "minimax": {
         "enabled": true
-      },
-      "feishu": {
-        "enabled": true
       }
     }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.3.14",
+    "lastTouchedAt": "2026-03-21T15:39:07.028Z"
   }
 }

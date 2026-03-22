@@ -176,7 +176,7 @@
           "maxTokens": 8192
         }
       ],
-      "apiKey": "MINIMAX_API_KEY"
+      "apiKey": "minimax-oauth"
     }
   }
 }

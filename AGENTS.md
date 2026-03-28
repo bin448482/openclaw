@@ -138,6 +138,63 @@ git remote -v
 # 测试版本
 openclaw --version
 
-# 运行 gateway
+# 运行 gateway（使用 ~/.openclaw 配置）
 openclaw gateway run --bind loopback --port 18789
+
+# 运行 gateway（使用指定配置目录）
+cd /mnt/tool/1-works/openclaw
+openclaw gateway run --bind loopback --port 18789
+
+# 或设置环境变量
+OPENCLAW_HOME=/mnt/tool/1-works/openclaw openclaw gateway run --bind loopback --port 18789
 ```
+
+---
+
+# OpenClaw Agents 导引
+
+## 配置文件位置
+
+- **主配置**: `~/.openclaw/openclaw.json`
+- **Agent 配置**: `~/.openclaw/agents/<agent-id>/agent/`
+- **工作区**: `/mnt/tool/1-works/openclaw/workspace-<agent-id>`
+
+## 目录结构
+
+```
+~/.openclaw/
+├── openclaw.json          # 主配置文件
+├── agents/
+│   ├── main/              # main agent 配置目录
+│   └── candy/             # candy agent 配置目录
+├── feishu/                # 飞书相关配置
+├── workspace/             # 默认工作区
+├── canvas/                # 画布目录
+└── credentials/           # 凭证目录
+```
+
+## Agent 列表
+
+| Agent | Workspace | 默认 Model | 用途 |
+|-------|-----------|------------|------|
+| main | `/mnt/tool/1-works/openclaw/workspace-main` | kimi/kimi-code | 主要工作 agent |
+| candy | `/mnt/tool/1-works/openclaw/workspace-candy` | kimi/kimi-code | 辅助/Coding agent |
+
+## Providers 配置
+
+| Provider | API | Base URL | Model |
+|----------|-----|----------|-------|
+| kimi | anthropic-messages | https://api.kimi.com/coding/ | kimi-code, kimi-for-coding |
+
+## Kimi 模型详情
+
+| Model | Context | Max Tokens | Reasoning |
+|-------|---------|------------|-----------|
+| kimi-for-coding | 131072 | 8192 | No |
+| kimi-code | 262144 | 32768 | Yes |
+
+## 飞书配置
+
+- **连接模式**: websocket
+- **域名**: feishu
+- **群组策略**: open

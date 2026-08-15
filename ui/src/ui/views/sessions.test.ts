@@ -88,6 +88,26 @@ describe("sessions view", () => {
     expect(Array.from(verbose?.options ?? []).some((option) => option.value === "full")).toBe(true);
   });
 
+  it("renders the derived session title", async () => {
+    const container = document.createElement("div");
+    render(
+      renderSessions(
+        buildProps(
+          buildResult({
+            key: "agent:main:main",
+            kind: "direct",
+            updatedAt: Date.now(),
+            derivedTitle: "Plan the release",
+          }),
+        ),
+      ),
+      container,
+    );
+    await Promise.resolve();
+
+    expect(container.querySelector("tbody")?.textContent).toContain("Plan the release");
+  });
+
   it("keeps unknown stored values selectable instead of forcing inherit", async () => {
     const container = document.createElement("div");
     render(

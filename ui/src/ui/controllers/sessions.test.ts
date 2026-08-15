@@ -81,6 +81,7 @@ describe("deleteSessionsAndRefresh", () => {
     expect(request).toHaveBeenNthCalledWith(3, "sessions.list", {
       includeGlobal: true,
       includeUnknown: true,
+      includeDerivedTitles: true,
     });
     expect(state.sessionsLoading).toBe(false);
   });
@@ -209,6 +210,7 @@ describe("loadSessions", () => {
     expect(request).toHaveBeenNthCalledWith(1, "sessions.list", {
       includeGlobal: true,
       includeUnknown: true,
+      includeDerivedTitles: true,
     });
     expect(request).toHaveBeenNthCalledWith(2, "sessions.compaction.list", {
       key: "agent:main:main",

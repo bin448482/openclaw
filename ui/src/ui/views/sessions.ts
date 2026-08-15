@@ -154,7 +154,14 @@ function filterRows(rows: GatewaySessionRow[], query: string): GatewaySessionRow
     const label = normalizeLowercaseStringOrEmpty(row.label);
     const kind = normalizeLowercaseStringOrEmpty(row.kind);
     const displayName = normalizeLowercaseStringOrEmpty(row.displayName);
-    return key.includes(q) || label.includes(q) || kind.includes(q) || displayName.includes(q);
+    const title = normalizeLowercaseStringOrEmpty(row.derivedTitle);
+    return (
+      key.includes(q) ||
+      label.includes(q) ||
+      kind.includes(q) ||
+      displayName.includes(q) ||
+      title.includes(q)
+    );
   });
 }
 
@@ -389,6 +396,7 @@ export function renderSessions(props: SessionsProps) {
                     : nothing}
                 </th>
                 ${sortHeader("key", "Key", "data-table-key-col")}
+                <th>Title</th>
                 <th>Label</th>
                 ${sortHeader("kind", "Kind")} ${sortHeader("updated", "Updated")}
                 ${sortHeader("tokens", "Tokens")}
@@ -404,7 +412,7 @@ export function renderSessions(props: SessionsProps) {
                 ? html`
                     <tr>
                       <td
-                        colspan="11"
+                        colspan="12"
                         style="text-align: center; padding: 48px 16px; color: var(--muted)"
                       >
                         No sessions found.
@@ -468,6 +476,7 @@ function renderRows(row: GatewaySessionRow, props: SessionsProps) {
   const checkpointItems = props.checkpointItemsByKey[row.key] ?? [];
   const checkpointError = props.checkpointErrorByKey[row.key];
   const displayName = normalizeOptionalString(row.displayName) ?? null;
+  const derivedTitle = normalizeOptionalString(row.derivedTitle) ?? null;
   const trimmedLabel = normalizeOptionalString(row.label) ?? "";
   const showDisplayName = Boolean(
     displayName && displayName !== row.key && displayName !== trimmedLabel,
@@ -525,6 +534,7 @@ function renderRows(row: GatewaySessionRow, props: SessionsProps) {
             : nothing}
         </div>
       </td>
+      <td>${derivedTitle ?? html`<span class="muted">${t("common.na")}</span>`}</td>
       <td>
         <input
           .value=${row.label ?? ""}
@@ -640,7 +650,7 @@ function renderRows(row: GatewaySessionRow, props: SessionsProps) {
     ...(isExpanded
       ? [
           html`<tr>
-            <td colspan="11" style="padding: 0;">
+            <td colspan="12" style="padding: 0;">
               <div
                 style="padding: 14px 16px; border-top: 1px solid var(--border); background: var(--surface-2, rgba(127, 127, 127, 0.05));"
               >
